@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site com Tags Semânticas</title>
+    <link rel="stylesheet" href="aLabStyle.css">
+</head>
+<body>
+
+   
+    <header>
+        <h1>Título</h1>
+        <nav>
+            <ul>
+                <li><a href="#Início">Início</a></li>
+                <li><a href="#Sobre">Sobre</a></li>
+                <li><a href="#Serviços">Serviços</a></li>
+                <li><a href="#Contactos">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section id="Início">
+       
+        <article>
+            <h2>Título do Artigo</h2>
+            <p>Este é um exemplo de artigo dentro da estrutura semântica do HTML5. Aqui podemos adicionar textos, imagens e outros elementos importantes.</p>
+        </article>
+
+        
+        <aside>
+            <h3>Barra Lateral</h3>
+            <p>Este é um conteúdo complementar, como links úteis, categorias ou informações adicionais.</p>
+        </aside>
+    </section>
+
+    <section id="Sobre" class="contato">
+        
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="mensagem">Mensagem:</label><br>
+            <textarea id="mensagem" name="mensagem" rows="3" required></textarea><br>
+
+            <button type="submit" class="btn-enviar">Submeter</button>
+        </form>
+    </section>
+
+
+
+    <footer>
+        <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
