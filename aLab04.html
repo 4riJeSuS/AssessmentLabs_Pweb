@@ -1,62 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site com Tags Semânticas</title>
+    <title>AssessmentLab04_HTML</title>
     <link rel="stylesheet" href="aLabStyle.css">
 </head>
-<body>
 
-   
+<body>
+    <video autoplay loop muted playsinline id="background-video">
+        <source src="C:\Users\arivj\OneDrive - Universidade da Beira Interior\GitHub\AssessmentLab04_HTML\videobck.mp4"
+            type="video/mp4">
+        Navegador não suporta vídeos!
+    </video>
     <header>
-        <h1>Título</h1>
+        <h1>Desenvolvimento Web</h1>
         <nav>
             <ul>
-                <li><a href="#Início">Início</a></li>
-                <li><a href="#Sobre">Sobre</a></li>
-                <li><a href="#Serviços">Serviços</a></li>
+                <li><a href="#Inicio">Início</a></li>
+                <li><a href="#Incricao">Incrição</a></li>
+                <li><a href="#Servicos">Serviços</a></li>
                 <li><a href="#Contactos">Contactos</a></li>
             </ul>
         </nav>
     </header>
 
-    
-    <section id="Início">
-       
-        <article>
-            <h2>Título do Artigo</h2>
-            <p>Este é um exemplo de artigo dentro da estrutura semântica do HTML5. Aqui podemos adicionar textos, imagens e outros elementos importantes.</p>
-        </article>
 
-        
-        <aside>
-            <h3>Barra Lateral</h3>
-            <p>Este é um conteúdo complementar, como links úteis, categorias ou informações adicionais.</p>
+    <section id="Inicio">
+        <div class="content">
+            <article>
+                <h2>Investir em Programação Web: Porquê?</h2>
+                <p>O desenvolvimento web continua a ser uma das áreas mais dinâmicas e valorizadas do
+                    mercado tecnólogico. Aqui estão alguns parâmetros que fazem o desenvolvimento web ser
+                    uma forma de entrar e crescer no universo da tecnologia.</p>
+                <ul>
+                    <li>Procura alta de profissionais: com a digitalização de negócios,
+                        empresas procuram desenvolvidores com altas qualificações.</li>
+                    <li>Salários atrativos: a média salarial de programadores web está
+                        entre as mais competitivas no mercado.</li>
+                    <li>Aprendizagens contínuas: a àrea oferece opurtunidades constantes
+                        para aprender novas tecnologias.</li>
+                    <li>Entre muitas outras.</li>
+                </ul>
+                <p>O futuro da programação web está mais promissor do que nunca. A cada ano, novas
+                    tecnologias e práticas transformam a forma como criamos e consumimos conteúdo digital. 
+                    Deste modo, está ao seu dispor a incrição de um workshop relativo ao investimento na área 
+                    falada em cima.<br> Vão ser abordamos temas como:</p>
+                <ul>
+                    <li>As tendências que virão a moldar a programação web.</li>
+                    <li>Fundamentos: o básico.</li>
+                    <li>Código e organização: os promeiros passos na web.</li>
+                    <li>Desenvolvimento de projetos.</li>
+                    <li>Entre muitos outros.</li>
+                </ul>
+                <p>Inscrições abaixo!</p>
+            </article>
+        </div>
+        <aside id="Servicos">
+            <h3>Mais informações</h3>
+            <ul style="list-style-type:none;">
+                <li><a href="https://www.di.ubi.pt/~palmeida/Desenvimento_Web_23_24/Desenvolvimento_Web_23_24.htm">Página da Unidade</a></li>
+                <br>
+                <li><a href="https://www.rocketseat.com.br/blog/artigos/post/desenvolvimento-web-em-2025">Site adaptado de</a></li>
+                <br>
+                <li><a href="https://moodle.ubi.pt/course/view.php?id=22866">Moodle UC</a></li>
+            </ul>
+            <br>
+            <p>Para mais informações ou dúvidas por favor contactar qualquer meio de comunicação apresentado no rodapé.</p>
         </aside>
+        <section id="Incricao" class="contato">
+            <form>
+                <h2>Inscrição</h2>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="mensagem">Mensagem:</label><br>
+                <textarea id="mensagem" name="mensagem" rows="3" required></textarea><br>
+
+                <button type="submit" class="btn-enviar">Submeter</button>
+            </form>
+            <img src="C:\Users\arivj\OneDrive - Universidade da Beira Interior\GitHub\AssessmentLab04_HTML\img1.jpg" width="350" height="250" alt="Imagem0">
+        </section>
+
     </section>
 
-    <section id="Sobre" class="contato">
-        
-        <form>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br>
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required><br>
-
-            <label for="mensagem">Mensagem:</label><br>
-            <textarea id="mensagem" name="mensagem" rows="3" required></textarea><br>
-
-            <button type="submit" class="btn-enviar">Submeter</button>
-        </form>
-    </section>
-
-
-
-    <footer>
-        <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
+    <footer id="Contactos">
+        <p>&copy; 2025 Desenvolvimento Web. Direitos reservados a Ari Jesus e Tomás Silva.</p>
+        <h3>Contactos:</h3>
+        <ul style="list-style-type:none;">
+            <li>Email: ***@ubi.pt</li>
+            <li>Telefone: 9********</li>
+        </ul>
+        <h4>Referências</h4>
+        <ul style="list-style-type:none;">
+            <li><a href="https://pixabay.com/pt/videos/search/wallpaper%203d/"> Link vídeo background</a></li>
+            <li><a href="https://octoti.com.br/o-que-faz-um-desenvolvedor-web/"> Link imagem inscrição</a></li>
+        </ul>
     </footer>
 
 </body>
+
 </html>
