@@ -47,3 +47,5 @@ console.log(typeof nulo);
 // undefined
 let indefinido;
 console.log(typeof indefinido);
+
+
