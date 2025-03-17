@@ -1,6 +1,6 @@
 //**var **
 
-var nome = "Tomás";
+var nome = "Tomas";
 console.log(nome);
 
 nome = "Ari";
@@ -60,3 +60,5 @@ console.log(UC);
 
 let cUC = {curso: "EI", UC};
 console.log(cUC);
+
+
