@@ -1,9 +1,9 @@
 //**var **
 
-var nome = "João";
+var nome = "Tomás";
 console.log(nome);
 
-nome = "Maria";
+nome = "Ari";
 console.log(nome);
 
 // **let**
@@ -47,5 +47,4 @@ console.log(typeof nulo);
 // undefined
 let indefinido;
 console.log(typeof indefinido);
-
 
