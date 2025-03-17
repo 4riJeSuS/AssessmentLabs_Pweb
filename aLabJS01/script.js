@@ -1,9 +1,9 @@
 //**var **
 
-var nome = "João";
+var nome = "Tomás";
 console.log(nome);
 
-nome = "Maria";
+nome = "Ari";
 console.log(nome);
 
 // **let**
@@ -47,3 +47,16 @@ console.log(typeof nulo);
 // undefined
 let indefinido;
 console.log(typeof indefinido);
+
+let curso = "EI";
+console.log(curso);
+
+const g = 8.90;
+console.log(g);
+//g = 9;
+
+let UC = ["Pweb", "AED", "LC"];
+console.log(UC);
+
+let cUC = {curso: "EI", UC};
+console.log(cUC);
