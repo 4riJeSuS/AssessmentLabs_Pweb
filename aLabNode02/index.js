@@ -1,38 +1,33 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 const port = 3000;
-
 const path = require('path');
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
-const client = {
-    clienteId: "12345",
-    nome: "João Silva",
-    endereco: {
-        rua: "Rua Exemplo",
-        "numero": "42",
-        cidade: "Lisboa",
-        codigoPostal: "1234-567"
-    },
-    consumo: [
-        {
-            mes: "Janeiro",
-            ano: 2023,
-            kWhConsumido: 250,
-            custoTotal: 35.50,
-            dataLeitura: "2023-01-31"
-        }
-    ],
-    informacoesAdicionais: {
-        tipoTarifa: "Residencial",
-        fornecedorEnergia: "Empresa XYZ",
-        contratoAtivo: true
-    }
-};
+app.use((req, res, next) => {
+    const timestamp = new Date().toLocaleString('pt-PT');
+    console.log(`[${timestamp}] ${req.method} request received at ${req.url}`);
+    next(); 
+});
 
-app.get('/cliente', (req, res) => {
-    res.status(200).json(client);
+// ...existing code...
+
+mongoose.connect('mongodb+srv://arivjpacheco:admin@progweb.rtyws0o.mongodb.net/')
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('MongoDB connection error:', err));
+
+const clientController = require('./controllers/clientController');
+const notasController = require('./controllers/notasController');
+
+app.use('/notas', notasController);
+app.use('/cliente', clientController);
+
+// 404 handler for undefined routes
+app.use((req, res) => {
+    res.status(404).json({ error: 'Rota não encontrada' });
 });
 
 app.listen(port, () => {

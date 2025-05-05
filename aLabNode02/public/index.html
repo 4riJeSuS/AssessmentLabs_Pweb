@@ -1,29 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Consumo Energético</title>
+    <title>Introduza uma Nota</title>
+    <style>
+        pre { background: #f4f4f4; padding: 10px; }
+        .error { color: red; }
+        form { margin: 20px 0; }
+        input { margin: 5px; padding: 5px; }
+    </style>
 </head>
-
 <body>
-    <h1>Dados do Cliente</h1>
+    <h1>Introduza Notas</h1>
+    
+    <form id="createForm">
+        <div>
+            <input type="number" id="codigo" placeholder="Código da Disciplina" required>
+        </div>
+        <div>
+            <input type="text" id="professor" placeholder="Nome do Professor" required>
+        </div>
+        <div>
+            <input type="text" id="disciplina" placeholder="Nome da Disciplina" required>
+        </div>
+        <div>
+            <input type="number" id="nota" placeholder="Nota" min="0" max="20" required>
+        </div>
+        <button type="submit">Criar Nota</button>
+    </form>
 
-    <p><strong>ID:</strong> <span id="clienteId"></span></p>
-    <p><strong>Nome:</strong> <span id="nome"></span></p>
-    <p><strong>Endereço:</strong>
-        <span id="endereco"></span>
-    </p>
+    <h2>Resultados:</h2>
+    <div id="results"></div>
 
-    <h2>Consumo</h2>
-    <ul id="consumoList"></ul>
-
-    <h2>Informações Adicionais</h2>
-    <p><strong>Tarifa:</strong> <span id="tarifa"></span></p>
-    <p><strong>Fornecedor:</strong> <span id="fornecedor"></span></p>
-    <p><strong>Contrato ativo:</strong> <span id="contrato"></span></p>
-
-    <script src="index.js"></script>
+    <script>
+        const results = document.getElementById('results');
+        const API_URL = 'http://localhost:3000/notas';
+        
+        // Carregar notas existentes ao iniciar
+        fetch(API_URL)
+            .then(res => {
+                console.log('Response status:', res.status);
+                return res.json();
+            })
+            .then(data => {
+                console.log('Data received:', data);
+                results.innerHTML = `<h3>Notas Existentes:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                results.innerHTML = `<pre class="error">Erro ao carregar notas: ${error}</pre>`;
+            });
+    
+        document.getElementById('createForm').onsubmit = async (e) => {
+            e.preventDefault();
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        codigoDisciplina: Number(document.getElementById('codigo').value),
+                        nomeProfessor: document.getElementById('professor').value,
+                        nomeDisciplina: document.getElementById('disciplina').value,
+                        nota: Number(document.getElementById('nota').value)
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                results.innerHTML += `<h3>Nova Nota Criada:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                console.error('Error:', error);
+                results.innerHTML += `<pre class="error">Erro ao criar nota: ${error}</pre>`;
+            }
+        };
+    </script>
 </body>
-
 </html>
