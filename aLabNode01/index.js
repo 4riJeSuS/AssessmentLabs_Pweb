@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-
+const { connectToDB } = require('./db');
 const notasRouter = require('./Controllers/notas');
 
+app.use(express.json());
 app.use('/', notasRouter);
 
-app.listen(port, () => {
-    console.log(`Aplicação "IDKApp" iniciada por Ari Jesus e Tomás Silva a correr em http://localhost:${port}`);
+connectToDB().then(() => {
+    app.listen(port, () => {
+        console.log(`Servidor a correr em http://localhost:${port}`);
+    });
 });
