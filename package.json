@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "mongoose": "^8.14.0"
+=======
+    "mongodb": "^6.16.0"
+>>>>>>> 6da43c082cfab79d31b391c9196b855ba52e1b7f
   }
 }

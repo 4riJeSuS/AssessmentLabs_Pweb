@@ -1,0 +1,14 @@
+[
+  {
+    "cod": "IP001",
+    "nota": 18,
+    "disciplina": "Programação",
+    "professor": "Dr."
+  },
+  {
+    "cod": "BD002",
+    "nota": 17,
+    "disciplina": "Bases de Dados",
+    "professor": "Dra."
+  }
+]
