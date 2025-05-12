@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Nota = require('../Models/notas');
+const verifyJWT = require('../middlewares/authMiddleware'); // <-- importa
 
 // Get all notas
 router.get('/', async (req, res) => {

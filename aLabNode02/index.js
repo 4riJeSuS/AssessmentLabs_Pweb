@@ -21,9 +21,11 @@ mongoose.connect('mongodb+srv://arivjpacheco:admin@progweb.rtyws0o.mongodb.net/'
 
 const clientController = require('./controllers/clientController');
 const notasController = require('./controllers/notasController');
+const authController = require('./controllers/authController');
 
 app.use('/notas', notasController);
 app.use('/cliente', clientController);
+app.use('/auth', authController);
 
 // 404 handler for undefined routes
 app.use((req, res) => {
@@ -33,3 +35,4 @@ app.use((req, res) => {
 app.listen(port, () => {
     console.log(`Servidor de consumo energético a correr em http://localhost:${port}`);
 });
+
